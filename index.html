@@ -11,6 +11,29 @@
         <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
 
         <script>
+                        var textField = document.getElementById("input");
+            var btEncriptar = document.getElementById("encriptar");
+            var btDesencriptar = document.getElementById("desencriptar");
+            var textArea = document.getElementById("textArea");
+
+            btEncriptar.onclick = encriptar;
+            btDesencriptar.onclick = desencriptar;
+
+            function validateInput(texto)
+            {
+                return(/^[a-z]*$/.test(texto));
+            }
+
+            function encriptar()
+            {
+                
+            }
+
+            function desencriptar()
+            {
+                
+            }
+
 
         </script>
     </body>
