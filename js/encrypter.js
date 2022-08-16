@@ -13,7 +13,7 @@ var keys = {
     "u": "ufat"
 }
 
-//Asiganr las funciones correspondientes a los botones encriptar y desencriptar
+//Asignar las funciones correspondientes a los botones encriptar y desencriptar
 btEncriptar.onclick = encriptar;
 btDesencriptar.onclick = desencriptar;
 
@@ -21,7 +21,7 @@ btDesencriptar.onclick = desencriptar;
 //ademas, valida que el usuario haya ingresado algun valor
 function validateInput(texto)
 {
-    if(texto.length == "") return false;
+    if(texto == "") return false;
     return(/^[a-z]*$/.test(texto));
 }
 
