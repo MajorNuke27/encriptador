@@ -16,7 +16,7 @@ btDesencriptar.onclick = desencriptar;
 function validateInput(texto)
 {
     if(texto.length == 0) return false;
-    return(/^[a-z]*$/.test(texto));
+    return(/^[a-z ]*$/.test(texto));
 }
 
 function encriptar()
