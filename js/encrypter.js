@@ -4,7 +4,7 @@ var btEncriptar = document.getElementById("encriptar");
 var btDesencriptar = document.getElementById("desencriptar");
 var textArea = document.getElementById("textArea");
 
-//Clves para la encriptacion de texto
+//Claves para la encriptacion de texto
 var keys = {
     "e": "enter",
     "i": "imes",
@@ -22,7 +22,7 @@ btDesencriptar.onclick = desencriptar;
 function validateInput(texto)
 {
     if(texto == "") return false;
-    return(/^[a-z]*$/.test(texto));
+    return(/^[a-z ]*$/.test(texto));
 }
 
 //Encripta el texto
