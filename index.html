@@ -1,6 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
+    
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
         <title>Encriptador de texto</title>
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
@@ -8,19 +13,35 @@
 
         <header>
 
-
+            
 
         </header>
 
         <main>
 
-            <input id = "input"></input>
+            <script src="js/encrypter.js"></script>
 
-            <button class = "button" id = "encriptar">Encriptar</button>
-            <button id = "desencriptar">Desencriptar</button>
-            <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
+            <section class="box-entrada">
 
-            <script src = "js/encrypter.js"></script>
+                <textarea id="input" cols="30" rows="10" placeholder="Ingrese el texto que desea encriptar..."></textarea>
+
+                <div class="botones">
+
+                    <button class="button" id="encriptar">Encriptar</button>
+                    <button class="button" id="desencriptar">Desencriptar</button>
+                    <button class="button" id="limpiar">Limpiar</button>
+
+                </div>
+
+            </section>
+
+            <section class="box-salida">
+
+                <textarea cols="30" rows="10" placeholder="Ningun texto se ah ingresado"></textarea>
+
+                <button class="button" id="copiar">Copiar</button>
+
+            </section>
 
         </main>
 
@@ -29,6 +50,7 @@
 
 
         </footer>
+
     </body>
 
 </html>
