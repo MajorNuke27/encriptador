@@ -25,7 +25,7 @@ btCopiar.onclick = copiar;
 //ademas, valida que el usuario haya ingresado algun valor
 function validateInput(texto)
 {
-    if(texto == "") return false;
+    if(texto == "" || /^[ \n]*$/.test(texto) ) return false;
     return(/^[a-z \n]*$/.test(texto));
 }
 
