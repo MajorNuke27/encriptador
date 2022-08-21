@@ -25,7 +25,11 @@ btCopiar.onclick = copiar;
 //ademas, valida que el usuario haya ingresado algun valor
 function validateInput(texto)
 {
-    if(texto == "" || /^[ \n]*$/.test(texto) ) return false;
+    if(texto == "" || /^[ \n]*$/.test(texto) ){
+        textAreaInput.value = "";
+        return false;
+    }
+    
     return(/^[a-z \n]*$/.test(texto));
 }
 
@@ -44,8 +48,16 @@ function encriptar()
         }
 
         textAreaOutput.value = texto;//Actualiza el text area con el texto encriptado
-        textAreaInput.value = "";//Limpia el text field
+        textAreaInput.value = "";//Limpia el text area (input)
+
+        return;
     }
+
+    Swal.fire(
+      'Texto invalido...',
+      'Solo se admiten letras minusculas sin acentos',
+      'error',
+    )
 }
 
 //Desencripta el texto
@@ -73,8 +85,12 @@ function limpiar() {
 
 function copiar() {
     navigator.clipboard.writeText(textAreaOutput.value).then((result) => {
-        console.log("Copiado al portapapeles");
+        Swal.fire(
+          '',
+          'Texto copiado exitosamente!',
+          'success'
+        );
     }).catch((err) => {
-        console.log("Error al copiar");
+        console.log(err);
     });
 }
