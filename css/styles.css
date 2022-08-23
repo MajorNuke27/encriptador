@@ -1,6 +1,6 @@
 body {
     font-family: 'Titillium Web', sans-serif;
-    background-image: url('/media/images/main.jpg');
+    background-image: url('./media/images/main.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
