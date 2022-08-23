@@ -53,11 +53,11 @@ function encriptar()
         return;
     }
 
-    Swal.fire(
-      'Texto invalido...',
-      'Solo se admiten letras minusculas sin acentos',
-      'error',
-    )
+    Swal.fire({
+      title: 'Texto invalido...',
+      text: 'Solo se admiten letras minusculas sin acentos',
+      icon: 'error',
+    })
 }
 
 //Desencripta el texto

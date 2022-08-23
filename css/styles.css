@@ -1,3 +1,15 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+    background-image: url('/media/images/main.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+body.swal2-shown > [aria-hidden="true"] {
+    transition: 0.6s filter;
+    filter: blur(3px);
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -6,9 +18,44 @@ main {
 }
 
 textarea {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    color: white;
+    border-radius: 1.5em;
     resize: none;
     padding: 2em;
     height: 100%;
+    background-color: rgba(138, 133, 133, 0.048);
+    backdrop-filter: blur(8px);
+    box-shadow: -.5em .6em 1.2em .2em rgba(29, 28, 28, 0.7);
+    border: .01em solid rgba(39, 38, 38, 0.349);
+}
+
+::placeholder {
+    color: #c2b5b5;
+}
+
+button {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 0.86em;
+    padding: 1em;
+    width: 30%;
+    border-radius: 1em;
+    color: white;
+    cursor: pointer;
+    border: .04em solid #18181a;
+    transition: 0.2s;
+    box-shadow: -0.2em .2em .6em .6em rgba(36, 35, 35, 0.6);
+}
+
+button:hover {
+    transform: translate(0, -.5em);
+    box-shadow: 0 .5em .8em .8em rgba(36, 35, 35, 0.5);
+}
+
+button:active {
+    scale: .95;
+    box-shadow: -0.2em .2em .6em .6em rgba(36, 35, 35, 0.6);
 }
 
 .box-entrada {
@@ -25,13 +72,21 @@ textarea {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    margin: 1.5em 0 1em 0;
+    margin: 1.7em 0 1em 0;
 }
 
-.button {
-    padding: 1em;
-    width: 30%;
+#encriptar {
+    background-color: #84C318;
 }
+
+#desencriptar {
+    background-color: #fc6f1d;
+}
+
+#limpiar {
+    background-color: #DF3B57;
+}
+
 
 .box-salida {
     display: flex;
@@ -43,33 +98,28 @@ textarea {
 }
 
 .box-salida button {
-    width: 50%;
+    width: 30%;
     margin: 1.5em 0 1em 0;
     align-self: center;
-}
-
-#encriptar {
-
-}
-
-#desencriptar {
-
+    background-color: #84C318;
 }
 
 @media screen and (max-width:600px) {
 
     .box-entrada, .box-salida {
         flex-basis: 80%;
-    }
-
-    .box-entrada, .box-salida {
         margin-bottom: 0;
     }
-
+    
     .button {
         padding: 1em;
         width: 100%;
         margin: 1em 0 1em 0;
+    }
+
+    button:hover {
+        transform: translate(0, 0);
+        box-shadow: -0.2em .2em .6em .6em rgba(36, 35, 35, 0.6);
     }
 
 }
