@@ -111,8 +111,7 @@ button:active {
         margin-bottom: 0;
     }
     
-    .button {
-        padding: 1em;
+    .botones button {
         width: 100%;
         margin: 1em 0 1em 0;
     }
