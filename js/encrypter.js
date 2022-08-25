@@ -49,6 +49,7 @@ function encriptar()
 
         textAreaOutput.value = texto;//Actualiza el text area con el texto encriptado
         textAreaInput.value = "";//Limpia el text area (input)
+        document.documentElement.style.setProperty('--url', 'none');//Elimina la imagen de fondo en el textAreaOutput
 
         return;
     }
@@ -75,12 +76,14 @@ function desencriptar()
 
         textAreaOutput.value = texto;//Actualiza el text area con el texto desencriptado
         textAreaInput.value = "";//Limpia el text field
+        document.documentElement.style.setProperty('--url', 'none');//Elimina la imagen de fondo en el textAreaOutput
     }
 }
 
 function limpiar() {
     textAreaInput.value = "";
     textAreaOutput.value = "";
+    document.documentElement.style.setProperty('--url', 'url(\'../images/pagina-no-encontrada.png\')');//Establece la imagen de fondo en el textAreaOutput
 }
 
 function copiar() {

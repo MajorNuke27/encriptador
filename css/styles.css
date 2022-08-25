@@ -1,3 +1,7 @@
+:root {
+    --url: url('../images/pagina-no-encontrada.png');
+}
+
 body {
     font-family: 'Titillium Web', sans-serif;
     background-image: url('../images/main.jpg');
@@ -95,6 +99,22 @@ button:active {
     flex: 1 .5 20em;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 2;
+    position: relative;
+}
+
+#box::after {
+    content: '';
+    position: absolute;
+    top: 20%; left: 10%;
+    width: 81%;
+    height: 50%;
+    z-index: 1;
+    background-image: var(--url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: opacity(.4);
 }
 
 .box-salida button {
