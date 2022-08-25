@@ -31,7 +31,7 @@ textarea {
     border: .01em solid rgba(39, 38, 38, 0.349);
 }
 
-::placeholder {
+textarea::placeholder {
     color: #c2b5b5;
 }
 
@@ -105,6 +105,10 @@ button:active {
 }
 
 @media screen and (max-width:600px) {
+
+    body {
+        background-size: auto 200vh;
+    }
 
     .box-entrada, .box-salida {
         flex-basis: 80%;
