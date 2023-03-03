@@ -18,7 +18,8 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
 }
 
 textarea {
@@ -124,6 +125,21 @@ button:active {
     background-color: #84C318;
 }
 
+footer {
+    height: 9.6vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #18181a93;
+    color: azure;
+    flex-direction: column;
+    
+}
+
+footer img {
+    width: 1.6rem;
+}
+
 @media screen and (max-width:600px) {
 
     body {
@@ -143,6 +159,10 @@ button:active {
     button:hover {
         transform: translate(0, 0);
         box-shadow: -0.2em .2em .6em .6em rgba(36, 35, 35, 0.6);
+    }
+
+    footer {
+        height: 6.4rem;
     }
 
 }
