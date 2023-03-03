@@ -16,40 +16,31 @@ var keys = {
 }
 
 //Asignar las funciones correspondientes a los botones
-btEncriptar.onclick = encriptar;
-btDesencriptar.onclick = desencriptar;
+btEncriptar.addEventListener("click", evt => transformText(true));
+btDesencriptar.addEventListener("click", evt => transformText(false));
 btLimpiar.onclick = limpiar;
 btCopiar.onclick = copiar;
 
-//Valida que el texto ingresado solo contenga letras minusculas sin caracteres especiales
-//ademas, valida que el usuario haya ingresado algun valor
-function validateInput(texto)
-{
-    if(texto == "" || /^[ \n]*$/.test(texto) ){
-        textAreaInput.value = "";
-        return false;
-    }
-    
-    return(/^[a-z \n]*$/.test(texto));
+//Valida que el texto ingresado solo contenga letras minusculas sin caracteres especiales y/o no este vacio
+function isTextValid(texto) {
+    return texto != "" && /^[a-z \n]*$/.test(texto);
 }
 
-//Encripta el texto
-function encriptar()
-{
+//Encripta o desencripta el texto en funcion del argumento recibido
+function transformText(encrypt) {
     var texto = textAreaInput.value;//Obtiene el texto 
                     
-    if(validateInput(texto))//Valida que el texto ingresado sea valido
-    {
+    if(isTextValid(texto)){
         //Para cada una de las claves obtiene el valor por el que sera reeemplazado
-        for(var letra in keys)
-        {
-            //Reeemplaza la letra obtenida, por su valor encriptado
-            texto = texto.replaceAll(letra, keys[letra]);
+        for(var letra in keys) {
+            //Remplaza la letra o valor en funcion de si se esta desencriptando o encriptando un texto
+            if(encrypt) texto = texto.replaceAll(letra, keys[letra]);
+            else texto = texto.replaceAll(keys[letra], letra);
         }
 
         textAreaOutput.value = texto;//Actualiza el text area con el texto encriptado
         textAreaInput.value = "";//Limpia el text area (input)
-        document.documentElement.style.setProperty('--url', 'none');//Elimina la imagen de fondo en el textAreaOutput
+        document.documentElement.style.setProperty('--url', 'none');//"Elimina" la imagen de fondo en el textAreaOutput
 
         return;
     }
@@ -61,25 +52,6 @@ function encriptar()
     })
 }
 
-//Desencripta el texto
-function desencriptar()
-{
-    var texto = textAreaInput.value;//Obtiene el texto   
-                    
-    if(validateInput(texto))//Valida que el texto ingresado sea valido
-    {
-        for(var letra in keys)
-        {
-            //Reeemplaza el valor encriptado, por la letra correspondiente
-            texto = texto.replaceAll(keys[letra], letra);
-        }
-
-        textAreaOutput.value = texto;//Actualiza el text area con el texto desencriptado
-        textAreaInput.value = "";//Limpia el text field
-        document.documentElement.style.setProperty('--url', 'none');//Elimina la imagen de fondo en el textAreaOutput
-    }
-}
-
 function limpiar() {
     textAreaInput.value = "";
     textAreaOutput.value = "";
@@ -87,7 +59,11 @@ function limpiar() {
 }
 
 function copiar() {
-    navigator.clipboard.writeText(textAreaOutput.value).then((result) => {
+    text = textAreaOutput.value;
+
+    if (text == "") return;
+
+    navigator.clipboard.writeText(text).then((result) => {
         Swal.fire(
           '',
           'Texto copiado exitosamente!',
